@@ -39,7 +39,7 @@ export const AWARDS: Award[] = [
   },
   {
     id: 'completer',
-    name: 'The Acomplisher',
+    name: 'The Accomplisher',
     levelId: 'pratiksha',
     isCompleter: true,
     blurb: 'For finishing the journey and carrying a lesson forward.',

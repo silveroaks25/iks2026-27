@@ -64,7 +64,7 @@ export function HomePage() {
       <section className="mx-auto max-w-6xl px-4 pb-24 pt-8">
         <h2 className="font-display text-4xl">Awards you can earn</h2>
         <p className="mt-2 max-w-2xl text-[var(--mute)]">
-          Complete each level to unlock its emblem. The Acomplisher award waits at the end of the sixth
+          Complete each level to unlock its emblem. The Accomplisher award waits at the end of the sixth
           section.
         </p>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
