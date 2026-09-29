@@ -29,7 +29,7 @@ export function Layout() {
           <NavLink to="/" className="flex items-center gap-3" onClick={() => beep()}>
             <span className="grid h-12 w-12 overflow-hidden rounded-lg bg-[var(--ember)] ring-1 ring-[var(--ember2)]/50">
               <img
-                src="/assets/main-logo.png"
+                src="./assets/main-logo.png"
                 alt="Silver Oaks International School logo"
                 className="h-full w-full object-cover"
               />
