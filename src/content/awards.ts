@@ -15,7 +15,7 @@ export const AWARDS: Award[] = [
   },
   {
     id: 'bridge',
-    name: 'The Travellers',
+    name: 'The Traveller',
     levelId: 'nagar',
     blurb: 'For following the people, places and ideas that connected India.',
   },
