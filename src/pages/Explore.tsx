@@ -76,6 +76,36 @@ export function ExplorePage() {
           )
         })}
       </ol>
+
+      <section className="panel mt-14 rounded-3xl border-[var(--emerald)]/30 p-6 sm:p-8">
+        <p className="text-xs uppercase tracking-[0.3em] text-[var(--ember2)]">Hindi support</p>
+        <h2 className="font-display mt-2 max-w-3xl text-3xl leading-tight sm:text-4xl">
+          For Grades 7, 8 and 9 students whose second language is Hindi
+        </h2>
+        <h3 className="mt-6 text-xl font-semibold leading-relaxed">
+          IKS Introduction भारतीय ज्ञान परंपरा क्या है? | Indian Knowledge Systems (IKS) | वेद से विज्ञान तक
+        </h3>
+        <a
+          className="mt-3 inline-block break-all text-sm text-[var(--ember2)] underline-offset-2 hover:underline"
+          href="https://www.youtube.com/watch?v=TVaB_O5o7qI"
+          target="_blank"
+          rel="noreferrer"
+        >
+          https://www.youtube.com/watch?v=TVaB_O5o7qI
+        </a>
+        <div className="mt-8 space-y-4 text-base leading-relaxed text-[var(--ink)]">
+          <p>वीडियो देखने के बाद, नीचे दिए गए प्रश्नों के उत्तर संक्षेप में लिखिए:</p>
+          <p>
+            <strong>प्रश्न 1:</strong> आपके अनुसार, प्राचीन भारत का 'कृषि विज्ञान' आज के समय में बढ़ते प्रदूषण और अस्वस्थ खान-पान को सुधारने में कैसे मदद कर सकता है?
+          </p>
+          <p>
+            <strong>प्रश्न 2:</strong> आधुनिक युग में तनाव (Stress) को कम करने के लिए 'योग और ध्यान (Meditation)' क्यों उपयोगी हैं?
+          </p>
+          <p>
+            <strong>प्रश्न 3:</strong> वीडियो के आधार पर बताइए कि भारतीय ज्ञान प्रणाली (IKS) को केवल "पुरानी बातें" मानने के बजाय एक "वैज्ञानिक और व्यावहारिक प्रणाली" क्यों माना जाना चाहिए?
+          </p>
+        </div>
+      </section>
     </main>
   )
 }

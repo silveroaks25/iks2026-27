@@ -77,21 +77,27 @@ export const LEVELS: Level[] = [
     videos: [
       {
         id: 'l1v1',
-        title: 'Understanding of IKS | Indian Knowledge System | English',
+        title: 'Understanding Indian Knowledge System',
         duration: '8:15',
         url: yt('r6jiJkEN58U', 180),
       },
-      { id: 'l1v2', title: 'Historical Overview' },
-      { id: 'l1v3', title: 'What exactly are Vedas?', duration: '11:15' },
       {
-        id: 'l1v4',
-        title: "Takshashila & Nalanda: The Story of Ancient India's Great Universities",
-        duration: '9:56',
+        id: 'l1v2',
+        title: 'What exactly are the Vedas?',
+        duration: '11:15',
+        url: yt('S1-17TeZvV0'),
       },
       {
-        id: 'l1v5',
-        title: 'How Sanskrit Built the Foundations of Half the Languages on Earth',
+        id: 'l1v3',
+        title: 'Takshashila and Nalanda',
+        duration: '9:56',
+        url: yt('BiXdVbeG7G4'),
+      },
+      {
+        id: 'l1v4',
+        title: 'Sanskrit and its connections with other languages',
         duration: '11:43',
+        url: yt('ayd7gEp97rI'),
       },
     ],
     tasks: {
@@ -193,41 +199,48 @@ export const LEVELS: Level[] = [
         id: 'l2v1',
         title: 'Forgotten Kingdoms That Ruled Ancient India',
         duration: '12:17',
+        url: yt('ZG3WlolN9Go'),
       },
       {
         id: 'l2v2',
         title:
-          'This Is What Ancient Indian Cities Looked Like | Bharat Bioscope with Palki Sharma | IGR',
+          'This Is What Ancient Indian Cities Looked Like',
         duration: '14:44',
+        url: yt('dSF8rwk7uiY', 16),
       },
       {
         id: 'l2v3',
         title:
-          'How Did Foreign Travellers See Ancient India? | Bharat Bioscope with Palki Sharma | IGR',
+          'How Did Foreign Travellers See Ancient India?',
         duration: '11:22',
+        url: yt('I-pI_gANshs', 219),
       },
       {
         id: 'l2v4',
-        title: 'What did Megasthenes see in India?',
+        title: 'Megasthenes',
         duration: '1:56',
+        url: 'https://www.youtube.com/watch?v=6O-hhlrWx9Y&list=PLLHPHvAbLRSY&index=35',
         optionalGroup: 'Optional: Meet the Travellers',
       },
       {
         id: 'l2v5',
-        title: 'What did Marco Polo see in India?',
+        title: 'Marco Polo',
         duration: '1:27',
+        url: 'https://www.youtube.com/watch?v=1AdRCdbHs90&list=PLLHPHvAbLRSY&index=34',
         optionalGroup: 'Optional: Meet the Travellers',
       },
       {
         id: 'l2v6',
-        title: 'This Chinese Monk Visited India Almost 1,400 Years Ago',
+        title: 'Xuanzang',
         duration: '1:25',
+        url: 'https://www.youtube.com/watch?v=a9arwco1tmE&list=PLLHPHvAbLRSY&index=36',
         optionalGroup: 'Optional: Meet the Travellers',
       },
       {
         id: 'l2v7',
-        title: "Arabian Traveller's Accounts of Ancient India",
+        title: 'Arabian travellers',
         duration: '1:08',
+        url: 'https://www.youtube.com/watch?v=Wu__yEA8KYI&list=PLLHPHvAbLRSY&index=37',
         optionalGroup: 'Optional: Meet the Travellers',
       },
     ],
@@ -326,18 +339,26 @@ export const LEVELS: Level[] = [
         id: 'l3v1',
         title: "The World's Oldest Record for the Number Zero",
         duration: '1:23',
+        url: 'https://www.youtube.com/watch?v=XDhw8AV_ZNk&list=PLLHPHvAbLRSY&index=52',
       },
-      { id: 'l3v2', title: 'Aryabhatta: Documentary', duration: '7:30' },
+      {
+        id: 'l3v2',
+        title: 'Aryabhata',
+        duration: '7:30',
+        url: yt('Sn4b2ND66Yo'),
+      },
       {
         id: 'l3v3',
         title: 'Contributions of India in Astronomy',
         duration: '10:29',
+        url: yt('lFh9bhCojwY'),
       },
       {
         id: 'l3v4',
         title:
-          'Ep 6: The Inventions India Gave the World | Bharat Bioscope with Palki Sharma | India Global Review',
+          'The Inventions India Gave the World',
         duration: '11:26',
+        url: yt('fErxgR7cDiE'),
       },
     ],
     tasks: {
@@ -437,30 +458,28 @@ export const LEVELS: Level[] = [
     videos: [
       {
         id: 'l4v1',
-        title: 'IKS in Architecture: Ancient Wisdom for Sustainable Living | NLD',
+        title: 'IKS in Architecture: Ancient Wisdom for Sustainable Living',
         duration: '42:07',
         note: '(For Grades 9–12)',
+        url: yt('kdAEjNxuQ3w'),
       },
       {
         id: 'l4v2',
-        title: 'The Rust-Proof Iron Pillar | India’s 1600-Year-Old Scientific Wonder!',
+        title: 'The Rust-Proof Iron Pillar',
         duration: '5:27',
+        url: yt('j7GIvmNm_sI'),
       },
       {
         id: 'l4v3',
-        title: 'How Indian Cotton Fuelled the Industrial Revolution | Storybook by InHERIT',
+        title: 'How Indian Cotton Fuelled the Industrial Revolution',
         duration: '7:11',
+        url: yt('XwcRrpW3t1s'),
       },
       {
         id: 'l4v4',
         title: 'Traditional Art Forms of India',
         duration: '11:40',
-      },
-      {
-        id: 'l4v5',
-        title:
-          'Ep 6: The Inventions India Gave the World | Bharat Bioscope with Palki Sharma | India Global Review',
-        duration: '11:26',
+        url: yt('4qUWCAnKjHQ'),
       },
     ],
     tasks: {
@@ -559,32 +578,38 @@ export const LEVELS: Level[] = [
     videos: [
       {
         id: 'l5v1',
-        title: 'Unraveling the MYSTERIES of Ancient Indian STEPWELLS',
+        title: 'Mysteries of Ancient Indian Stepwells',
         duration: '9:38',
+        url: yt('OX0TkXGLsIY'),
       },
       {
         id: 'l5v2',
         title: "Cholas: The Force Behind India's First Naval Fleet",
+        url: yt('XBcK10rBJAw'),
       },
       {
         id: 'l5v3',
         title: 'How the Cholas Became a Maritime Power',
         duration: '1:37',
+        url: 'https://www.youtube.com/watch?v=-IJRkvQpWYk&list=PLLHPHvAbLRSY&index=47',
       },
       {
         id: 'l5v4',
         title:
-          "Why India's Rise Runs Through the Indian Ocean | Bharat Bioscope with Palki Sharma | IGR",
+          "Why India's Rise Runs Through the Indian Ocean",
         duration: '11:50',
+        url: yt('dzYO43CpMLU'),
       },
       {
         id: 'l5v5',
         title: 'How India’s Spice Route Inspired G20 Corridor',
         duration: '9:34',
+        url: yt('T-AqM2PvXw0', 40),
       },
       {
         id: 'l5v6',
         title: 'How the Ahoms Repelled a Mighty Mughal Armada',
+        url: 'https://www.youtube.com/watch?v=9bOwpmuDRuM&list=PLLHPHvAbLRSY&index=41',
       },
     ],
     tasks: {
