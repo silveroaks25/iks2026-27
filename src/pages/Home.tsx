@@ -36,7 +36,7 @@ export function HomePage() {
                 Begin the journey
               </Link>
               <Link to="/awards" className="btn btn-ghost">
-                View awards · {earned}/6
+                View badges · {earned}/6
               </Link>
             </div>
           </div>
@@ -52,7 +52,7 @@ export function HomePage() {
               />
             </div>
             <p className="mt-4 text-center text-xs uppercase tracking-[0.3em] text-[var(--mute)]">
-              Six gates · six awards · one expedition
+              Six gates · six badges · one expedition
             </p>
           </div>
         </div>
@@ -62,9 +62,9 @@ export function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-24 pt-8">
-        <h2 className="font-display text-4xl">Awards you can earn</h2>
+        <h2 className="font-display text-4xl">Badges you can earn</h2>
         <p className="mt-2 max-w-2xl text-[var(--mute)]">
-          Complete each level to unlock its emblem. The Accomplisher award waits at the end of the sixth
+          Complete each level to unlock its emblem. The Accomplisher badge waits at the end of the sixth
           section.
         </p>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

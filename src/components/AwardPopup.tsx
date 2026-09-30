@@ -30,7 +30,7 @@ export function AwardPopup() {
           <div className="absolute left-1/2 top-10 h-40 w-40 -translate-x-1/2 rounded-full bg-[var(--ember)] blur-3xl" />
         </div>
         <div className="relative p-6 text-center">
-          <p className="text-xs uppercase tracking-[0.35em] text-[var(--ember2)]">Award Unlocked</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-[var(--ember2)]">Badge Unlocked</p>
           <div className="mx-auto mt-5 h-64 w-52 overflow-hidden rounded-2xl border border-[var(--line)] shadow-glow rise">
             <AwardArt id={award.id} unlocked />
           </div>

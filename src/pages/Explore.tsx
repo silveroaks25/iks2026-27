@@ -68,7 +68,7 @@ export function ExplorePage() {
                         : 'Complete the previous level to open this gate'}
                   </span>
                   {state.awards[level.awardId] && (
-                    <span className="text-sm text-[var(--ember2)]">Award earned</span>
+                    <span className="text-sm text-[var(--ember2)]">Badge earned</span>
                   )}
                 </div>
               </article>

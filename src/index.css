@@ -77,6 +77,7 @@ body {
   font-family: Lato, system-ui, sans-serif;
   line-height: 1.55;
   overflow-x: hidden;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
 h1,
@@ -95,6 +96,28 @@ h6 {
     radial-gradient(900px 500px at -10% 20%, rgba(24, 116, 95, 0.18), transparent 50%),
     linear-gradient(135deg, rgba(122, 36, 55, 0.05), transparent 42%),
     var(--paper);
+  transition: background 0.8s ease;
+}
+
+.panel {
+  transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, transform 0.3s ease;
+}
+
+article.panel:hover {
+  transform: translateY(-3px);
+}
+
+html.theme-transition::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(41, 184, 156, 0.3), transparent 30%),
+    radial-gradient(circle at 82% 30%, rgba(226, 186, 77, 0.28), transparent 28%),
+    radial-gradient(circle at 50% 80%, rgba(146, 45, 71, 0.3), transparent 35%);
+  animation: theme-wash 0.9s ease-out forwards;
 }
 
 [data-theme='dark'] #root {
@@ -177,6 +200,20 @@ h6 {
   }
   100% {
     background-position: 200% 50%;
+  }
+}
+
+@keyframes theme-wash {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.15);
   }
 }
 

@@ -57,22 +57,21 @@ function ExplorerArt() {
 function BridgeArt() {
   return (
     <svg viewBox="0 0 400 480" className="h-full w-full" aria-hidden>
-      <rect width="400" height="480" fill="#12080c" />
-      <path d="M0 320 Q200 80 400 320" fill="none" stroke="var(--award-color)" strokeWidth="18" />
-      <path d="M0 320 Q200 120 400 320" fill="none" stroke="#f4f0ea" strokeWidth="3" />
-      {[40, 80, 120, 160, 200, 240, 280, 320, 360].map((x) => (
-        <line
-          key={x}
-          x1={x}
-          y1={320 - Math.sin((x / 400) * Math.PI) * 170}
-          x2={x}
-          y2="360"
-          stroke="#ffffff44"
-          strokeWidth="2"
-        />
+      <defs>
+        <linearGradient id="bridgeBg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#071a33" />
+          <stop offset="100%" stopColor="#123c58" />
+        </linearGradient>
+      </defs>
+      <rect width="400" height="480" fill="url(#bridgeBg)" />
+      <circle cx="310" cy="90" r="88" fill="var(--award-color)" opacity="0.12" />
+      <path d="M-30 350 Q125 105 430 260" fill="none" stroke="var(--award-color)" strokeWidth="34" opacity="0.9" />
+      <path d="M-30 350 Q125 105 430 260" fill="none" stroke="#eff9ff" strokeWidth="2" opacity="0.8" />
+      <path d="M0 405 Q170 230 400 340" fill="none" stroke="#29b89c" strokeWidth="5" opacity="0.8" />
+      {Array.from({ length: 9 }).map((_, i) => (
+        <circle key={i} cx={42 + i * 42} cy={330 - Math.sin((i / 8) * Math.PI) * 105} r="4" fill="#f6d889" />
       ))}
-      <rect x="0" y="360" width="400" height="120" fill="#1a0d12" />
-      <circle cx="70" cy="90" r="18" fill="#ffd7a8" opacity="0.7" />
+      <path d="M40 410 L200 160 L360 410" fill="none" stroke="#ffffff33" strokeWidth="1.5" />
     </svg>
   )
 }
@@ -100,18 +99,27 @@ function ScholarArt() {
 function WeaverArt() {
   return (
     <svg viewBox="0 0 400 480" className="h-full w-full" aria-hidden>
-      <rect width="400" height="480" fill="#140a08" />
-      {Array.from({ length: 14 }).map((_, i) => (
+      <defs>
+        <linearGradient id="weaverBg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#4d182b" />
+          <stop offset="100%" stopColor="#102f4c" />
+        </linearGradient>
+      </defs>
+      <rect width="400" height="480" fill="url(#weaverBg)" />
+      {Array.from({ length: 11 }).map((_, i) => (
         <path
           key={i}
-          d={`M0 ${40 + i * 28} Q100 ${20 + i * 28} 200 ${40 + i * 28} T400 ${40 + i * 28}`}
+          d={`M${-50 + i * 40} 0 Q${80 + i * 20} 100 ${-10 + i * 45} 220 T${40 + i * 35} 480`}
           fill="none"
-          stroke={i % 2 ? 'var(--award-color)' : '#f4f0ea'}
-          strokeWidth="2"
-          opacity={0.55}
+          stroke={i % 3 === 0 ? '#f6d889' : i % 3 === 1 ? 'var(--award-color)' : '#29b89c'}
+          strokeWidth={i % 3 === 0 ? 3 : 1.5}
+          opacity="0.75"
         />
       ))}
-      <rect x="160" y="80" width="80" height="280" fill="none" stroke="#fff" strokeWidth="2" />
+      <path d="M35 80 L200 28 L365 80 L200 132 Z" fill="none" stroke="#f6d889" strokeWidth="2" />
+      <path d="M35 400 L200 348 L365 400 L200 452 Z" fill="none" stroke="#29b89c" strokeWidth="2" />
+      <circle cx="200" cy="240" r="70" fill="none" stroke="var(--award-color)" strokeWidth="3" />
+      <path d="M150 240 L200 190 L250 240 L200 290 Z" fill="var(--award-color)" opacity="0.28" />
     </svg>
   )
 }

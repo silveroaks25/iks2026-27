@@ -89,7 +89,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       pendingAward,
       beep,
       setGrade: (g) => setState((s) => ({ ...s, grade: g })),
-      setTheme: (t) => setState((s) => ({ ...s, theme: t })),
+      setTheme: (t) => {
+        document.documentElement.classList.remove('theme-transition')
+        void document.documentElement.offsetWidth
+        document.documentElement.classList.add('theme-transition')
+        window.setTimeout(() => document.documentElement.classList.remove('theme-transition'), 950)
+        setState((s) => ({ ...s, theme: t }))
+      },
       setVolume: (n) => setState((s) => ({ ...s, volume: n })),
       setSound: (on) => setState((s) => ({ ...s, sound: on })),
       markVideo: (id) => setState((s) => ({ ...s, videos: { ...s.videos, [id]: true } })),

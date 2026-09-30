@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { GRADE_LABELS, LEVELS, type GradeId, type Task, type Video } from '../content/iks'
 import { AWARDS } from '../content/awards'
@@ -18,6 +18,9 @@ function watchHref(video: Video) {
 
 export function LevelPage() {
   const { levelId } = useParams()
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }, [levelId])
   const level = LEVELS.find((l) => l.id === levelId)
   const {
     state,
@@ -164,7 +167,7 @@ export function LevelPage() {
             ? 'This gate is open behind you. You can still revisit the videos and answers.'
             : grouped.main.length
               ? 'Mark every required video as watched to unlock this gate.'
-              : 'Review the prompts, then open the final award when you are ready.'}
+              : 'Review the prompts, then open the final badge when you are ready.'}
         </p>
         {!done && (
           <button
@@ -180,7 +183,7 @@ export function LevelPage() {
             to={next ? `/explore/${next.id}` : '/awards'}
             className="btn btn-primary mt-6"
           >
-            {next ? 'Next gate' : 'Open awards gallery'}
+            {next ? 'Next gate' : 'Open badges gallery'}
           </Link>
         )}
       </section>

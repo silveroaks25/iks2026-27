@@ -7,7 +7,7 @@ import { useProgress } from '../lib/ProgressContext'
 const links = [
   { to: '/', label: 'Home' },
   { to: '/explore', label: 'Explore IKS' },
-  { to: '/awards', label: 'Awards' },
+  { to: '/awards', label: 'Badges' },
   { to: '/feedback', label: 'Feedback' },
 ]
 

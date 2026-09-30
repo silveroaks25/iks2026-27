@@ -71,9 +71,9 @@ export function SettingsDrawer({
 
         <section className="mt-8">
           <div className="flex items-center justify-between">
-            <h3 className="text-xs uppercase tracking-[0.28em] text-[var(--mute)]">Awards</h3>
+            <h3 className="text-xs uppercase tracking-[0.28em] text-[var(--mute)]">Badges</h3>
             <Link to="/awards" className="text-sm text-[var(--ember2)]" onClick={onClose}>
-              Open gallery
+              Open badge gallery
             </Link>
           </div>
           <div className="mt-4 grid grid-cols-3 gap-3">
@@ -88,7 +88,7 @@ export function SettingsDrawer({
         <button
           className="btn btn-ghost mt-auto"
           onClick={() => {
-            if (confirm('Reset local journey progress? Awards and answers on this device will be cleared.')) {
+            if (confirm('Reset local journey progress? Badges and answers on this device will be cleared.')) {
               resetProgress()
             }
           }}

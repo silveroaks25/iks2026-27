@@ -10,7 +10,7 @@ export function AwardsPage() {
   return (
     <main id="main" className="mx-auto max-w-6xl px-4 py-12">
       <p className="text-xs uppercase tracking-[0.4em] text-[var(--ember2)]">Collection</p>
-      <h1 className="font-display mt-2 text-5xl">Awards</h1>
+      <h1 className="font-display mt-2 text-5xl">Badges</h1>
       <p className="mt-3 max-w-2xl text-[var(--mute)]">
         Unlocked emblems glow. Locked emblems stay in shadow until the matching level is sealed.
       </p>
