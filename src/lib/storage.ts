@@ -28,7 +28,7 @@ export const DEFAULT_PROGRESS: ProgressState = {
   answers: {},
   completedLevels: [],
   awards: {},
-  theme: 'dark',
+  theme: 'light',
   volume: 0.35,
   sound: true,
 }

@@ -45,6 +45,21 @@
   color-scheme: light;
 }
 
+[data-theme='dark'] {
+  --ink: #eff9ff;
+  --paper: #071a33;
+  --paper-2: #0c2b4b;
+  --mute: #b7d3e7;
+  --line: rgba(102, 190, 224, 0.24);
+  --ember: #922d47;
+  --ember2: #e2ba4d;
+  --emerald: #29b89c;
+  --glow: rgba(76, 184, 230, 0.34);
+  --panel: rgba(10, 43, 75, 0.82);
+  --shadow: 0 28px 70px rgba(1, 11, 28, 0.62);
+  color-scheme: dark;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -80,6 +95,14 @@ h6 {
     radial-gradient(900px 500px at -10% 20%, rgba(24, 116, 95, 0.18), transparent 50%),
     linear-gradient(135deg, rgba(122, 36, 55, 0.05), transparent 42%),
     var(--paper);
+}
+
+[data-theme='dark'] #root {
+  background:
+    radial-gradient(1100px 620px at 85% -10%, rgba(43, 156, 218, 0.28), transparent 58%),
+    radial-gradient(900px 560px at -12% 22%, rgba(146, 45, 71, 0.3), transparent 55%),
+    radial-gradient(720px 420px at 70% 80%, rgba(41, 184, 156, 0.14), transparent 58%),
+    linear-gradient(135deg, #071a33, #0b2441 55%, #10213d);
 }
 
 .video-ambient {

@@ -10,7 +10,7 @@ export function SettingsDrawer({
   open: boolean
   onClose: () => void
 }) {
-  const { state, setVolume, setSound, resetProgress } = useProgress()
+  const { state, setTheme, setVolume, setSound, resetProgress } = useProgress()
   if (!open) return null
 
   return (
@@ -23,6 +23,26 @@ export function SettingsDrawer({
             Close
           </button>
         </div>
+
+        <section className="mt-8">
+          <h3 className="text-xs uppercase tracking-[0.28em] text-[var(--mute)]">Appearance</h3>
+          <div className="mt-3 grid grid-cols-2 gap-3">
+            {(['light', 'dark'] as const).map((t) => (
+              <button
+                key={t}
+                className={`rounded-2xl border px-4 py-4 text-left transition ${
+                  state.theme === t ? 'border-[var(--ember2)] shadow-glow' : 'border-[var(--line)]'
+                }`}
+                onClick={() => setTheme(t)}
+              >
+                <span className="block text-sm font-medium capitalize">{t} mode</span>
+                <span className="text-xs text-[var(--mute)]">
+                  {t === 'light' ? 'Blue daylight' : 'Deep blue night'}
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
 
         <section className="mt-8">
           <h3 className="text-xs uppercase tracking-[0.28em] text-[var(--mute)]">Page volume</h3>

@@ -56,8 +56,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     saveProgress(state)
-    document.documentElement.setAttribute('data-theme', 'fixed')
-    document.documentElement.style.colorScheme = 'light'
+    document.documentElement.setAttribute('data-theme', state.theme)
+    document.documentElement.style.colorScheme = state.theme
   }, [state])
 
   const api = useMemo<Ctx>(() => {
