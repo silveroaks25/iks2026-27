@@ -15,9 +15,9 @@ export const AWARDS: Award[] = [
   },
   {
     id: 'bridge',
-    name: 'The Bridge',
+    name: 'The Traveler',
     levelId: 'nagar',
-    blurb: 'For walking between cities, kingdoms and travellers.',
+    blurb: 'For following the people, places and ideas that connected India.',
   },
   {
     id: 'scholar',
@@ -33,7 +33,7 @@ export const AWARDS: Award[] = [
   },
   {
     id: 'keeper',
-    name: 'The Keeper',
+    name: 'The Navigator',
     levelId: 'yatra',
     blurb: 'For tracing water, ships, rivers and routes.',
   },

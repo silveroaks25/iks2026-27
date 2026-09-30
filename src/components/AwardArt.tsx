@@ -20,10 +20,10 @@ export function AwardArt({ id, unlocked = true, className = '' }: ArtProps) {
       style={{ '--award-color': palette.color, '--award-glow': palette.glow } as CSSProperties}
     >
       {id === 'explorer' && <ExplorerArt />}
-      {id === 'bridge' && <BridgeArt />}
+      {id === 'bridge' && <TravelerArt />}
       {id === 'scholar' && <ScholarArt />}
       {id === 'weaver' && <WeaverArt />}
-      {id === 'keeper' && <KeeperArt />}
+      {id === 'keeper' && <NavigatorArt />}
       {id === 'completer' && <CompleterArt />}
     </div>
   )
@@ -54,24 +54,25 @@ function ExplorerArt() {
   )
 }
 
-function BridgeArt() {
+function TravelerArt() {
   return (
     <svg viewBox="0 0 400 480" className="h-full w-full" aria-hidden>
       <defs>
-        <linearGradient id="bridgeBg" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id="travelerBg" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#071a33" />
           <stop offset="100%" stopColor="#123c58" />
         </linearGradient>
       </defs>
-      <rect width="400" height="480" fill="url(#bridgeBg)" />
-      <circle cx="310" cy="90" r="88" fill="var(--award-color)" opacity="0.12" />
-      <path d="M-30 350 Q125 105 430 260" fill="none" stroke="var(--award-color)" strokeWidth="34" opacity="0.9" />
-      <path d="M-30 350 Q125 105 430 260" fill="none" stroke="#eff9ff" strokeWidth="2" opacity="0.8" />
-      <path d="M0 405 Q170 230 400 340" fill="none" stroke="#29b89c" strokeWidth="5" opacity="0.8" />
-      {Array.from({ length: 9 }).map((_, i) => (
-        <circle key={i} cx={42 + i * 42} cy={330 - Math.sin((i / 8) * Math.PI) * 105} r="4" fill="#f6d889" />
+      <rect width="400" height="480" fill="url(#travelerBg)" />
+      <circle cx="200" cy="225" r="125" fill="none" stroke="var(--award-color)" strokeWidth="2" opacity="0.8" />
+      <circle cx="200" cy="225" r="78" fill="none" stroke="#f6d889" strokeWidth="2" opacity="0.7" />
+      <path d="M42 365 C105 300 108 172 190 188 S296 302 355 110" fill="none" stroke="#29b89c" strokeWidth="5" opacity="0.9" />
+      <path d="M355 110 l-9 30 26-15z" fill="#f6d889" />
+      <path d="M200 103 L218 207 L200 347 L182 207 Z" fill="var(--award-color)" opacity="0.72" />
+      <path d="M78 225 H322 M200 90 V360" stroke="#eff9ff" strokeWidth="1.5" opacity="0.55" />
+      {Array.from({ length: 7 }).map((_, i) => (
+        <circle key={i} cx={72 + i * 43} cy={340 - Math.sin((i / 6) * Math.PI) * 92} r="4" fill="#f6d889" />
       ))}
-      <path d="M40 410 L200 160 L360 410" fill="none" stroke="#ffffff33" strokeWidth="1.5" />
     </svg>
   )
 }
@@ -124,20 +125,23 @@ function WeaverArt() {
   )
 }
 
-function KeeperArt() {
+function NavigatorArt() {
   return (
     <svg viewBox="0 0 400 480" className="h-full w-full" aria-hidden>
-      <rect width="400" height="480" fill="#071018" />
-      <path d="M40 80 L200 40 L360 80 L360 200 Q200 360 40 200 Z" fill="#0e2230" stroke="#8ad4ff" strokeWidth="2" />
-      <path
-        d="M80 140 Q140 220 200 160 T320 200"
-        fill="none"
-        stroke="var(--award-color)"
-        strokeWidth="4"
-      />
-      <circle cx="200" cy="168" r="6" fill="#fff" />
-      <path d="M70 300 h260 v20 h-260z" fill="#1a3344" />
-      <path d="M90 300 l40 -70 h140 l40 70" fill="var(--award-color)" />
+      <defs>
+        <linearGradient id="navigatorBg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#071a33" />
+          <stop offset="100%" stopColor="#123c58" />
+        </linearGradient>
+      </defs>
+      <rect width="400" height="480" fill="url(#navigatorBg)" />
+      <circle cx="200" cy="210" r="126" fill="none" stroke="var(--award-color)" strokeWidth="2" opacity="0.85" />
+      <circle cx="200" cy="210" r="88" fill="none" stroke="#29b89c" strokeWidth="2" opacity="0.75" />
+      <path d="M200 72 L229 190 L200 350 L171 190 Z" fill="var(--award-color)" opacity="0.82" />
+      <path d="M74 210 H326 M200 82 V338" stroke="#eff9ff" strokeWidth="1.5" opacity="0.6" />
+      <circle cx="200" cy="210" r="11" fill="#f6d889" />
+      <path d="M40 382 Q105 348 170 382 T300 382 T430 382" fill="none" stroke="#29b89c" strokeWidth="6" opacity="0.8" />
+      <path d="M40 414 Q105 380 170 414 T300 414 T430 414" fill="none" stroke="#f6d889" strokeWidth="2" opacity="0.75" />
     </svg>
   )
 }
