@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const WARMUP_KEY = 'iks-2026-warmup-complete'
 
@@ -12,6 +12,56 @@ export function hasCompletedWarmup() {
 
 export function WarmupModal({ onComplete }: { onComplete: () => void }) {
   const [watched, setWatched] = useState(false)
+  const playerHost = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    let player: { destroy: () => void } | undefined
+    let cancelled = false
+
+    const createPlayer = () => {
+      if (cancelled || !playerHost.current) return
+      const api = (window as Window & {
+        YT?: {
+          Player: new (element: HTMLElement, options: {
+            videoId: string
+            playerVars: { rel: 0 }
+            events: { onStateChange: (event: { data: number }) => void }
+          }) => { destroy: () => void }
+        }
+      }).YT
+      if (!api) return
+      player = new api.Player(playerHost.current, {
+        videoId: 't7c_YEe_8EM',
+        playerVars: { rel: 0 },
+        events: {
+          onStateChange: (event) => {
+            if (event.data === 0) setWatched(true)
+          },
+        },
+      })
+    }
+
+    const existing = document.querySelector('script[src="https://www.youtube.com/iframe_api"]')
+    if ((window as Window & { YT?: unknown }).YT) {
+      createPlayer()
+    } else if (existing) {
+      const previousReady = (window as Window & { onYouTubeIframeAPIReady?: () => void }).onYouTubeIframeAPIReady
+      ;(window as Window & { onYouTubeIframeAPIReady?: () => void }).onYouTubeIframeAPIReady = () => {
+        previousReady?.()
+        createPlayer()
+      }
+    } else {
+      const script = document.createElement('script')
+      script.src = 'https://www.youtube.com/iframe_api'
+      document.head.appendChild(script)
+      ;(window as Window & { onYouTubeIframeAPIReady?: () => void }).onYouTubeIframeAPIReady = createPlayer
+    }
+
+    return () => {
+      cancelled = true
+      player?.destroy()
+    }
+  }, [])
 
   const finishWarmup = () => {
     if (!watched) return
@@ -32,18 +82,14 @@ export function WarmupModal({ onComplete }: { onComplete: () => void }) {
             <h2 id="warmup-title" className="font-display mt-2 text-3xl leading-tight sm:text-5xl">Warm-up Task</h2>
             <p className="mt-3 max-w-2xl text-[var(--mute)]">Start with a quick challenge about what it means to know a country. Watch carefully, keep a tally, and reflect before entering the six gates.</p>
           </div>
-          <span className="shrink-0 rounded-full border border-[var(--line)] px-3 py-1 text-xs uppercase tracking-widest text-[var(--mute)]">Required</span>
+          <span className={`shrink-0 rounded-full border px-3 py-1 text-xs uppercase tracking-widest ${watched ? 'border-[var(--emerald)] text-[var(--emerald)]' : 'border-[var(--line)] text-[var(--mute)]'}`}>
+            {watched ? 'Watched' : 'Required'}
+          </span>
         </div>
 
         <div className="video-ambient mt-6 overflow-hidden rounded-2xl border border-[var(--line)] p-2 sm:p-3">
           <div className="aspect-video overflow-hidden rounded-xl bg-black">
-            <iframe
-              className="h-full w-full"
-              src="https://www.youtube.com/embed/t7c_YEe_8EM?rel=0"
-              title="If India Had a Citizenship Test, Would You Pass It?"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
+            <div ref={playerHost} className="h-full w-full" aria-label="If India Had a Citizenship Test, Would You Pass It?" />
           </div>
         </div>
 
@@ -56,7 +102,7 @@ export function WarmupModal({ onComplete }: { onComplete: () => void }) {
             <div className="mt-6 rounded-xl border border-[var(--line)] bg-[var(--panel)] p-4">
               <h4 className="font-display text-xl">Your Challenge</h4>
               <p className="mt-2 text-sm text-[var(--mute)]">Before watching, make a quick guess:</p>
-              <label className="mt-4 block text-sm font-semibold">My guess: _____ / 10<input className="field mt-2" inputMode="numeric" aria-label="My guess out of ten" /></label>
+              <p className="mt-4 text-sm font-semibold">My guess: _____ / 10</p>
               <p className="mt-4 text-sm text-[var(--mute)]">Now watch the video carefully. Keep a simple tally of the questions you answer correctly.</p>
             </div>
           </section>
@@ -65,13 +111,13 @@ export function WarmupModal({ onComplete }: { onComplete: () => void }) {
             <p className="text-xs uppercase tracking-[0.25em] text-[var(--ember2)]">Reflect</p>
             <h3 className="font-display mt-2 text-2xl">My Score</h3>
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              <label className="text-sm font-semibold">Before watching<input className="field mt-2" inputMode="numeric" placeholder="_____ / 10" /></label>
-              <label className="text-sm font-semibold">After watching<input className="field mt-2" inputMode="numeric" placeholder="_____ / 10" /></label>
+              <p className="text-sm font-semibold">Before watching: _____ / 10</p>
+              <p className="text-sm font-semibold">After watching: _____ / 10</p>
             </div>
             <div className="mt-5 space-y-3">
-              <label className="block text-sm font-semibold">One answer that surprised me:<textarea className="field mt-2 min-h-16" /></label>
-              <label className="block text-sm font-semibold">One thing I thought I knew, but got wrong:<textarea className="field mt-2 min-h-16" /></label>
-              <label className="block text-sm font-semibold">One thing I want to find out more about:<textarea className="field mt-2 min-h-16" /></label>
+              <p className="text-sm font-semibold">One answer that surprised me: <span className="font-normal text-[var(--mute)]">Think about it.</span></p>
+              <p className="text-sm font-semibold">One thing I thought I knew, but got wrong: <span className="font-normal text-[var(--mute)]">Think about it.</span></p>
+              <p className="text-sm font-semibold">One thing I want to find out more about: <span className="font-normal text-[var(--mute)]">Think about it.</span></p>
             </div>
           </section>
         </div>
@@ -82,10 +128,7 @@ export function WarmupModal({ onComplete }: { onComplete: () => void }) {
         </section>
 
         <div className="mt-6 flex flex-col gap-4 border-t border-[var(--line)] pt-5 sm:flex-row sm:items-center sm:justify-between">
-          <label className="flex items-start gap-3 text-sm text-[var(--mute)]">
-            <input type="checkbox" className="mt-1 h-4 w-4 accent-[var(--emerald)]" checked={watched} onChange={(event) => setWatched(event.target.checked)} />
-            <span>I watched the video and completed the warm-up task.</span>
-          </label>
+          <p className="text-sm text-[var(--mute)]">Watch the complete video to unlock the gates.</p>
           <button type="button" className="btn btn-primary shrink-0" disabled={!watched} onClick={finishWarmup}>Enter the gates</button>
         </div>
       </div>
