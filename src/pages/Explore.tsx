@@ -2,12 +2,16 @@ import { Link } from 'react-router-dom'
 import { LEVELS } from '../content/iks'
 import { AWARDS } from '../content/awards'
 import { useProgress } from '../lib/ProgressContext'
+import { hasCompletedWarmup, WarmupModal } from '../components/WarmupModal'
+import { useState } from 'react'
 
 export function ExplorePage() {
   const { isLevelUnlocked, isLevelComplete, state } = useProgress()
+  const [showWarmup, setShowWarmup] = useState(() => !hasCompletedWarmup())
 
   return (
-    <main id="main" className="mx-auto max-w-5xl px-4 py-12">
+    <>
+      <main id="main" className="mx-auto max-w-5xl px-4 py-12">
       <p className="text-xs uppercase tracking-[0.4em] text-[var(--ember2)]">Expedition map</p>
       <h1 className="font-display mt-3 text-5xl sm:text-6xl">Explore IKS</h1>
       <p className="mt-3 max-w-2xl text-[var(--mute)]">
@@ -106,6 +110,8 @@ export function ExplorePage() {
           </p>
         </div>
       </section>
-    </main>
+      </main>
+      {showWarmup && <WarmupModal onComplete={() => setShowWarmup(false)} />}
+    </>
   )
 }

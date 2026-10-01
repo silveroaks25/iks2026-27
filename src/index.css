@@ -28,6 +28,20 @@
     border-color: var(--ember);
     color: var(--ember2);
   }
+  .field {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: var(--panel);
+    color: var(--ink);
+    padding: 0.65rem 0.75rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .field:focus {
+    border-color: var(--emerald);
+    box-shadow: 0 0 0 3px rgba(24, 116, 95, 0.15);
+  }
 }
 
 :root {
