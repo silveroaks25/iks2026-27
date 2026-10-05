@@ -12,7 +12,7 @@ export function hasCompletedWarmup() {
 
 export function WarmupModal({ onComplete }: { onComplete: () => void }) {
   const [watched, setWatched] = useState(false)
-  const playerHost = useRef<HTMLDivElement>(null)
+  const playerHost = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {
     let player: { destroy: () => void } | undefined
@@ -24,7 +24,7 @@ export function WarmupModal({ onComplete }: { onComplete: () => void }) {
         YT?: {
           Player: new (element: HTMLElement, options: {
             videoId: string
-            playerVars: { rel: 0 }
+            playerVars: { rel: 0; enablejsapi: 1 }
             events: { onStateChange: (event: { data: number }) => void }
           }) => { destroy: () => void }
         }
@@ -32,7 +32,7 @@ export function WarmupModal({ onComplete }: { onComplete: () => void }) {
       if (!api) return
       player = new api.Player(playerHost.current, {
         videoId: 't7c_YEe_8EM',
-        playerVars: { rel: 0 },
+        playerVars: { rel: 0, enablejsapi: 1 },
         events: {
           onStateChange: (event) => {
             if (event.data === 0) setWatched(true)
@@ -89,7 +89,14 @@ export function WarmupModal({ onComplete }: { onComplete: () => void }) {
 
         <div className="video-ambient mt-6 overflow-hidden rounded-2xl border border-[var(--line)] p-2 sm:p-3">
           <div className="aspect-video overflow-hidden rounded-xl bg-black">
-            <div ref={playerHost} className="h-full w-full" aria-label="If India Had a Citizenship Test, Would You Pass It?" />
+            <iframe
+              ref={playerHost}
+              className="h-full w-full"
+              src={`https://www.youtube.com/embed/t7c_YEe_8EM?rel=0&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`}
+              title="If India Had a Citizenship Test, Would You Pass It?"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
           </div>
         </div>
 
