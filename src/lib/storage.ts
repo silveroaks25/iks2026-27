@@ -37,8 +37,13 @@ export function loadProgress(): ProgressState {
   try {
     const raw = localStorage.getItem(KEY)
     if (!raw) return { ...DEFAULT_PROGRESS }
-    const parsed = JSON.parse(raw) as Partial<ProgressState>
-    return { ...DEFAULT_PROGRESS, ...parsed }
+    const parsed = JSON.parse(raw) as Partial<ProgressState> & { grade?: string }
+    const savedGrade = String(parsed.grade ?? '')
+    const validGrades: ProgressState['grade'][] = ['5-6', '7-8', '9', '11']
+    const grade = validGrades.includes(savedGrade as ProgressState['grade'])
+      ? (savedGrade as ProgressState['grade'])
+      : DEFAULT_PROGRESS.grade
+    return { ...DEFAULT_PROGRESS, ...parsed, grade }
   } catch {
     return { ...DEFAULT_PROGRESS }
   }

@@ -1,4 +1,4 @@
-export type GradeId = '5-6' | '7-8' | '9-10' | '11-12'
+export type GradeId = '5-6' | '7-8' | '9' | '11'
 
 export type TaskKind = 'text' | 'blanks' | 'checks' | 'triple' | 'final'
 
@@ -40,8 +40,8 @@ export type Level = {
 export const GRADE_LABELS: { id: GradeId; label: string }[] = [
   { id: '5-6', label: 'Grades 5–6' },
   { id: '7-8', label: 'Grades 7–8' },
-  { id: '9-10', label: 'Grades 9–10' },
-  { id: '11-12', label: 'Grades 11–12' },
+  { id: '9', label: 'Grade 9' },
+  { id: '11', label: 'Grade 11' },
 ]
 
 export const HOME = {
@@ -141,7 +141,7 @@ export const LEVELS: Level[] = [
             'If you could ask a scholar from Takshashila or Nalanda one question, what would you ask?',
         },
       ],
-      '9-10': [
+      '9': [
         {
           id: 'l1g910a',
           kind: 'text',
@@ -161,7 +161,7 @@ export const LEVELS: Level[] = [
             'When you come across a claim about ancient Indian knowledge, what would you look for before accepting it as reliable?',
         },
       ],
-      '11-12': [
+      '11': [
         {
           id: 'l1g1112a',
           kind: 'text',
@@ -283,7 +283,7 @@ export const LEVELS: Level[] = [
             'Two travellers may visit India and write very different descriptions. Give one possible reason.',
         },
       ],
-      '9-10': [
+      '9': [
         {
           id: 'l2g910a',
           kind: 'text',
@@ -303,7 +303,7 @@ export const LEVELS: Level[] = [
             'If you were researching an ancient Indian city, what sources other than a traveller\'s account would you use?',
         },
       ],
-      '11-12': [
+      '11': [
         {
           id: 'l2g1112a',
           kind: 'text',
@@ -402,7 +402,7 @@ export const LEVELS: Level[] = [
             'What is one question about Indian mathematics or astronomy that you would like to find the answer to?',
         },
       ],
-      '9-10': [
+      '9': [
         {
           id: 'l3g910a',
           kind: 'text',
@@ -421,7 +421,7 @@ export const LEVELS: Level[] = [
             'What does the development of mathematics and astronomy tell us about the importance of curiosity?',
         },
       ],
-      '11-12': [
+      '11': [
         {
           id: 'l3g1112a',
           kind: 'text',
@@ -460,7 +460,7 @@ export const LEVELS: Level[] = [
         id: 'l4v1',
         title: 'IKS in Architecture: Ancient Wisdom for Sustainable Living',
         duration: '42:07',
-        note: '(For Grades 9–12)',
+        note: 'Extension video',
         url: yt('kdAEjNxuQ3w'),
       },
       {
@@ -521,7 +521,7 @@ export const LEVELS: Level[] = [
             'If you could meet the person who developed or practised the technique, what would you ask?',
         },
       ],
-      '9-10': [
+      '9': [
         {
           id: 'l4g910a',
           kind: 'text',
@@ -541,7 +541,7 @@ export const LEVELS: Level[] = [
             'Choose one traditional technique. How could modern technology help it survive or develop further?',
         },
       ],
-      '11-12': [
+      '11': [
         {
           id: 'l4g1112a',
           kind: 'text',
@@ -651,7 +651,7 @@ export const LEVELS: Level[] = [
             'In the story of the Ahoms, how did knowledge of the local river and surroundings help them?',
         },
       ],
-      '9-10': [
+      '9': [
         {
           id: 'l5g910a',
           kind: 'text',
@@ -671,7 +671,7 @@ export const LEVELS: Level[] = [
             'Choose one traditional idea from these videos that could be useful in addressing a present-day problem.',
         },
       ],
-      '11-12': [
+      '11': [
         {
           id: 'l5g1112a',
           kind: 'text',
@@ -741,7 +741,7 @@ export const LEVELS: Level[] = [
           prompt: "One idea I would like to see adapted for today's world is:",
         },
       ],
-      '9-10': [
+      '9': [
         {
           id: 'l6g910a',
           kind: 'checks',
@@ -773,7 +773,7 @@ export const LEVELS: Level[] = [
           prompt: 'One idea from the past that could be reimagined for the future is:',
         },
       ],
-      '11-12': [
+      '11': [
         {
           id: 'l6g1112a',
           kind: 'triple',

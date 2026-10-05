@@ -3,11 +3,13 @@ import { LEVELS } from '../content/iks'
 import { AWARDS } from '../content/awards'
 import { useProgress } from '../lib/ProgressContext'
 import { hasCompletedWarmup, WarmupModal } from '../components/WarmupModal'
+import { hasCompletedProjectInstructions, ProjectInstructionsModal } from '../components/ProjectInstructionsModal'
 import { useState } from 'react'
 
 export function ExplorePage() {
   const { isLevelUnlocked, isLevelComplete, state } = useProgress()
-  const [showWarmup, setShowWarmup] = useState(() => !hasCompletedWarmup())
+  const [showInstructions, setShowInstructions] = useState(() => !hasCompletedProjectInstructions())
+  const [showWarmup, setShowWarmup] = useState(() => hasCompletedProjectInstructions() && !hasCompletedWarmup())
 
   return (
     <>
@@ -111,7 +113,15 @@ export function ExplorePage() {
         </div>
       </section>
       </main>
-      {showWarmup && <WarmupModal onComplete={() => setShowWarmup(false)} />}
+      {showInstructions && (
+        <ProjectInstructionsModal
+          onComplete={() => {
+            setShowInstructions(false)
+            if (!hasCompletedWarmup()) setShowWarmup(true)
+          }}
+        />
+      )}
+      {!showInstructions && showWarmup && <WarmupModal onComplete={() => setShowWarmup(false)} />}
     </>
   )
 }
